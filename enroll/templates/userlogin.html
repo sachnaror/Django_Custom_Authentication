@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User login</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            margin-top: 100px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .er {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {% for fm in form %}
+                <div class="form-group">
+                    {{ fm.label_tag }}
+                    {{ fm }}
+                    <small class="form-text text-danger">{{ fm.errors|striptags }}</small>
+                </div>
+            {% endfor %}
+
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p class="er">{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <br>
+
+        <!-- <a class="btn btn-outline-primary" href="{% url 'signup' %}">SignUp</a> -->
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js (optional) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

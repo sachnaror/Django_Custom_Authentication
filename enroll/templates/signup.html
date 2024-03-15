@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Custom styles if needed */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .custom-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 custom-form">
+                <form action="" method="post" novalidate class="needs-validation">
+                    {% csrf_token %}
+                    {% for fm in form %}
+                        <div class="form-group">
+                            {{ fm.label_tag }}
+                            {{ fm }}
+                            <small class="text-danger">{{ fm.errors|striptags }}</small>
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">SignUp</button>
+
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <p class="er">{{error}}</p>
+                        {% endfor %}
+                    {% endif %}
+                </form>
+
+                <br>
+
+                <!-- <a class="btn btn-outline-primary" href="{% url 'login' %}">Login</a> -->
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <small class="d-block mt-2 {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js (optional) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
