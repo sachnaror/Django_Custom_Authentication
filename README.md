@@ -40,7 +40,19 @@ The `SECRET_KEY` setting is currently set to a placeholder value. For a producti
 
 The `DEBUG` setting is currently set to `True`. This should be set to `False` in a production environment.
 
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+
+
+<img width="289" alt="image" src="https://github.com/sachnaror/Django_Custom_Authentication/assets/9551754/54825d14-90ef-416b-a587-d8376cffbab7">
+
+
+<img width="498" alt="image" src="https://github.com/sachnaror/Django_Custom_Authentication/assets/9551754/96ce7ff4-8564-4845-af0c-ebee9534a6e9">
+
+
+<img width="308" alt="image" src="https://github.com/sachnaror/Django_Custom_Authentication/assets/9551754/aa0ce0ee-0244-4369-b115-d62af887e337">
+
 
