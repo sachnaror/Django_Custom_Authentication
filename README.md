@@ -22,8 +22,12 @@ To set up the project, you will need to have Python and Django installed. You ca
    ```
    cd registrationForm
    ```
-   ```
-3. Run the server:
+3. Apply database migrations:
+    ```
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+4. Run the server:
    ```
    python manage.py runserver
    ```
